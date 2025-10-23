@@ -1,0 +1,85 @@
+# Kaggle 环境配置 - 7B 4-bit SFT (使用预分词数据)
+# 适用：16GB GPU (Kaggle P100/T4)
+# 模型：DeepSeek R1 Distill Qwen 7B
+# 量化：4-bit NF4 with LoRA
+
+# ============ 模型配置 ============
+model_name_or_path: Qwen/Qwen2.5-7B-Instruct
+model_revision: main
+torch_dtype: null
+
+# 4-bit 量化配置
+load_in_4bit: true
+bnb_4bit_compute_dtype: bfloat16
+bnb_4bit_use_double_quant: true
+bnb_4bit_quant_type: nf4
+
+# LoRA 配置
+use_peft: true
+lora_r: 8
+lora_alpha: 16
+lora_dropout: 0.05
+
+# ============ 数据配置 ============
+# ！！重要：请将下面的路径替换为您在 Kaggle 上上传数据集后的路径！！
+dataset_name: /kaggle/input/OpenR1-Math-220k-tokenized-Qwen-2.5-7B
+# dataset_config: default # 不再需要，因为我们加载的是本地数据集
+dataset_num_proc: 4 # 可以在 Kaggle 上保留多进程加载
+eos_token: '<|im_end|>'
+
+# ============ 训练配置 ============
+# 优化的 Kaggle 设置
+bf16: true
+per_device_train_batch_size: 2
+per_device_eval_batch_size: 2
+gradient_accumulation_steps: 8
+max_grad_norm: 1.0
+learning_rate: 2.0e-04
+num_train_epochs: 1
+max_steps: -1
+
+# 序列长度（为了节省显存，从 32768 降低到 4096）
+max_length: 4096
+
+# 优化器
+optim: adamw_8bit
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.03
+
+# 梯度检查点和内存优化
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+
+# 禁用 liger kernel（为了减少显存压力）
+use_liger_kernel: false
+
+# ============ 日志和保存 ============
+output_dir: ./output_7b_4bit_sft
+overwrite_output_dir: false
+do_eval: false
+eval_strategy: 'no'
+
+# 日志
+log_level: info
+logging_steps: 10
+logging_strategy: steps
+report_to:
+  - wandb
+
+# 保存策略
+save_strategy: steps
+save_steps: 500
+save_total_limit: 2
+
+# Hub 推送
+push_to_hub: false
+hub_model_id: null
+
+# 其他配置
+seed: 42
+dataloader_drop_last: true
+remove_unused_columns: true
+packing: false

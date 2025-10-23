@@ -74,6 +74,9 @@ class ScriptArguments(trl.ScriptArguments):
         default=None,
         metadata={"help": "Configuration for creating dataset mixtures with advanced options like shuffling."},
     )
+    dataset_num_proc: Optional[int] = field(
+        default=None, metadata={"help": "Number of processes to use for dataset preprocessing."}
+    )
 
     def __post_init__(self):
         if self.dataset_name is None and self.dataset_mixture is None:
