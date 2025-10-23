@@ -76,7 +76,6 @@ save_total_limit: 2
 # Hub 推送
 push_to_hub: false
 hub_model_id: null
-hub_strategy: no_push
 
 # 其他配置
 seed: 42
