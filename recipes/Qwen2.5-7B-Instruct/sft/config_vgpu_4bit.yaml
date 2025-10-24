@@ -4,7 +4,7 @@
 # 量化：4-bit NF4 with LoRA
 
 # ============ 模型配置 ============
-model_name_or_path: Qwen/Qwen2.5-7B-Instruct
+model_name_or_path: ../Qwen2.5-7B-Instruct
 model_revision: main
 torch_dtype: bfloat16
 attn_implementation: flash_attention_2  # 需要安装 flash-attn>=2.6
@@ -22,7 +22,7 @@ lora_alpha: 16
 lora_dropout: 0.05
 
 # ============ 数据配置 ============
-dataset_name: open-r1/OpenR1-Math-220k
+dataset_name: ../OpenR1-Math-220k-tokenized-Qwen-2.5-7B
 dataset_config: default
 dataset_preprocessing_num_proc: 4
 eos_token: '<|im_end|>'
@@ -74,7 +74,7 @@ save_steps: 500
 save_total_limit: 2
 
 # Hub 推送
-push_to_hub: true
+push_to_hub: false
 hub_model_id: open-r1/Qwen2.5-7B-Instruct-sft
 hub_strategy: every_save
 hub_private_repo: false
