@@ -74,8 +74,11 @@ save_steps: 500
 save_total_limit: 2
 
 # Hub 推送
-push_to_hub: false
-hub_model_id: null
+push_to_hub: true
+hub_model_id: open-r1/Qwen2.5-7B-Instruct-sft
+hub_strategy: every_save
+hub_private_repo: false
+hub_always_push: true
 
 # 其他配置
 seed: 42
