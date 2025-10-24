@@ -76,7 +76,7 @@ save_total_limit: 2
 
 # Hub 推送
 push_to_hub: true
-hub_model_id: open-r1/Qwen2.5-7B-Instruct-sft-pretokenized
+hub_model_id: Jese/Qwen2.5-7B-Instruct-sft-pretokenized
 hub_strategy: every_save
 hub_private_repo: false
 hub_always_push: true
