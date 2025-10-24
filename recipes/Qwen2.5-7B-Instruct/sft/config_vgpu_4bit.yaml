@@ -7,7 +7,7 @@
 model_name_or_path: ../Qwen2.5-7B-Instruct
 model_revision: main
 torch_dtype: bfloat16
-attn_implementation: flash_attention_2  # 需要安装 flash-attn>=2.6
+# attn_implementation: flash_attention_2  # 需要安装 flash-attn>=2.6
 
 # 4-bit 量化配置
 load_in_4bit: true
