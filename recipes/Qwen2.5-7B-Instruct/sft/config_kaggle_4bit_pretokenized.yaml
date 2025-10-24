@@ -30,7 +30,7 @@ eos_token: '<|im_end|>'
 # ============ 训练配置 ============
 # 优化的 Kaggle 设置
 bf16: true
-per_device_train_batch_size: 2
+per_device_train_batch_size: 1
 per_device_eval_batch_size: 2
 gradient_accumulation_steps: 8
 max_grad_norm: 1.0
