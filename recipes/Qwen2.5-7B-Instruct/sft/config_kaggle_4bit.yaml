@@ -39,7 +39,7 @@ num_train_epochs: 1
 max_steps: -1
 
 # 序列长度（为了节省显存，从 32768 降低到 4096）
-max_length: 4096
+max_length: 512
 
 # 优化器
 optim: adamw_8bit
