@@ -6,11 +6,11 @@
 # ============ 模型配置 ============
 model_name_or_path: Qwen/Qwen2.5-7B-Instruct
 model_revision: main
-torch_dtype: null
+torch_dtype: float16
 
 # 4-bit 量化配置
 load_in_4bit: true
-bnb_4bit_compute_dtype: bfloat16
+bnb_4bit_compute_dtype: float16
 bnb_4bit_use_double_quant: true
 bnb_4bit_quant_type: nf4
 
@@ -28,10 +28,11 @@ eos_token: '<|im_end|>'
 
 # ============ 训练配置 ============
 # 优化的 Kaggle 设置
-bf16: true
+bf16: false
+fp16: true
 per_device_train_batch_size: 1
 per_device_eval_batch_size: 2
-gradient_accumulation_steps: 8
+gradient_accumulation_steps: 16
 max_grad_norm: 1.0
 learning_rate: 2.0e-04
 num_train_epochs: 1
