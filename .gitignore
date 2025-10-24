@@ -179,3 +179,4 @@ results/
 processed-data
 .vscode/
 .python-version
+tmp*

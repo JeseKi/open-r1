@@ -72,7 +72,7 @@ def main(script_args, training_args, model_args):
     tokenized_dataset = dataset.map(
         tokenize_function,
         batched=True,
-        num_proc=script_args.dataset_num_proc,
+        num_proc=script_args.dataset_preprocessing_num_proc,
         remove_columns=column_names,
     )
 

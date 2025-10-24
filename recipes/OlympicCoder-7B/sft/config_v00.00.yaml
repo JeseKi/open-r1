@@ -8,7 +8,7 @@ attn_implementation: flash_attention_2
 # Data training arguments
 dataset_name: open-r1/codeforces-cots
 dataset_config: solutions_decontaminated
-dataset_num_proc: 48
+dataset_preprocessing_num_proc: 48
 
 # SFT trainer config
 bf16: true

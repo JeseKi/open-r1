@@ -24,7 +24,7 @@ lora_dropout: 0.05
 # ！！重要：请将下面的路径替换为您在 Kaggle 上上传数据集后的路径！！
 dataset_name: /kaggle/input/OpenR1-Math-220k-tokenized-Qwen-2.5-7B
 # dataset_config: default # 不再需要，因为我们加载的是本地数据集
-dataset_num_proc: 4 # 可以在 Kaggle 上保留多进程加载
+dataset_preprocessing_num_proc: 4 # 可以在 Kaggle 上保留多进程加载
 eos_token: '<|im_end|>'
 
 # ============ 训练配置 ============

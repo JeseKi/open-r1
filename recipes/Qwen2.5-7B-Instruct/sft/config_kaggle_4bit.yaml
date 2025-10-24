@@ -23,7 +23,7 @@ lora_dropout: 0.05
 # ============ 数据配置 ============
 dataset_name: open-r1/OpenR1-Math-220k
 dataset_config: default
-dataset_num_proc: 4
+dataset_preprocessing_num_proc: 4
 eos_token: '<|im_end|>'
 
 # ============ 训练配置 ============
